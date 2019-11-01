@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/icons": "^4.5.1",
     "materialize-css": "^1.0.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
