@@ -1,8 +1,12 @@
 import React, { Component } from "react";
 import Bottle from "./Bottle";
-
-export class Beers extends Component {
-  render() {
+import Spinner from "./Spinner"
+import PropTypes from 'prop-types'
+const Beers =({loading, daten}) => {
+ if (loading){
+   return <Spinner/>
+ }
+ else{
     return (
       <table className="table">
         <thead>
@@ -14,12 +18,12 @@ export class Beers extends Component {
           </tr>
         </thead>
         <tbody>
-          {this.props.daten.map((brand, index) => {
+          {daten.map((brand, index) => {
             const { labels } = brand;
 
             return (
               <tr key={brand.id}>
-                <td>{labels ? <img src={labels.icon}></img> : <p></p>}</td>
+                <td>{labels ? <img src={labels.icon} alt="Logo"></img> : <p></p>}</td>
                 <td>{brand && <Bottle singleBrand={brand}></Bottle>}</td>
                 <td>{brand.abv}</td>
                 <td>{brand.ibu}</td>
@@ -39,6 +43,12 @@ export class Beers extends Component {
     /* Beers.PropTypes = {
     brewData: PropTypes.array.isRequired
 } */
-  }
+  
+}
+Beers.PropTypes = {
+  daten: PropTypes.array.isRequired,
+  loading: PropTypes.bool.isRequired
+}
+
 }
 export default Beers;

@@ -1,15 +1,16 @@
 import React, { Component } from "react";
 import Popup from "reactjs-popup";
 
-export class Bottle extends Component {
-  render() {
+const Bottle =({singleBrand}) => {
+  
     return (
-      <Popup trigger={<button className="button"    	> {this.props.singleBrand.name}</button>} modal>
+      <Popup trigger={<button className="button"    	> {singleBrand.name}</button>} modal>
         {close => (
       <div>
                 <div className="d-flex justify-content-between">
                 
-                <div className="header"><h3>{this.props.singleBrand.nameDisplay}</h3></div>
+                <div className="header"><h3>{singleBrand.nameDisplay}</h3>
+                                        {singleBrand.style.category.name ? <h5>{singleBrand.style.category.name}</h5>: ""}</div>
                 <a className="close " onClick={close}>
                 &times;
                 </a>
@@ -17,14 +18,14 @@ export class Bottle extends Component {
 
         <div className="content">
           {" "}
-          {this.props.singleBrand.style && this.props.singleBrand.style.description}
+          {singleBrand.style && singleBrand.style.description}
         </div><div> 
         <ul>
-            <div>{this.props.singleBrand.abv ? <li>APV {this.props.singleBrand.abv}</li> :"" }</div>
-            <div>{this.props.singleBrand.ibu ? <li>IBU {this.props.singleBrand.ibu}</li> : "" }</div>
-            <div>{this.props.singleBrand.isOrganic ? <li>organic {this.props.singleBrand.isOrganic}</li> : ""}</div>
-            <li>year: {this.props.singleBrand && this.props.singleBrand.updateDate}</li>
-            <li>status: {this.props.singleBrand && this.props.singleBrand.status}</li>
+            <div>{singleBrand.abv ? <li>APV {singleBrand.abv}</li> :"" }</div>
+            <div>{singleBrand.ibu ? <li>IBU {singleBrand.ibu}</li> : "" }</div>
+            <div>{singleBrand.isOrganic ? <li>organic {singleBrand.isOrganic}</li> : ""}</div>
+            <li>year: {singleBrand && singleBrand.updateDate}</li>
+            <li>status: {singleBrand && singleBrand.status}</li>
         </ul>
        
        
@@ -34,8 +35,8 @@ export class Bottle extends Component {
       </div>
     )}
         {/* <div className="modal">
-          {this.props.singleBrand.style &&
-            this.props.singleBrand.style.description}
+          {singleBrand.style &&
+            singleBrand.style.description}
         </div> */}
       </Popup>
 
@@ -44,7 +45,7 @@ export class Bottle extends Component {
 
 
     );
-  }
+  
 }
 
 export default Bottle;
