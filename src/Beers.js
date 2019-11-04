@@ -22,12 +22,7 @@ const Beers =({loading, daten}) => {
             const { labels } = brand;
 
             return (
-              <tr key={brand.id}>
-                <td>{labels ? <img src={labels.icon} alt="Logo"></img> : <p></p>}</td>
-                <td>{brand && <Bottle singleBrand={brand}></Bottle>}</td>
-                <td>{brand.abv}</td>
-                <td>{brand.ibu}</td>
-              </tr>
+              <Bottle singleBrand={brand}></Bottle>
             );
           })}
         </tbody>

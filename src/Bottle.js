@@ -4,7 +4,18 @@ import Popup from "reactjs-popup";
 const Bottle =({singleBrand}) => {
   
     return (
-      <Popup trigger={<button style={{border:'0px'}} className="button"    	> {singleBrand.name}</button>} modal>
+      <Popup trigger={
+        <tr>
+                <td>{singleBrand.labels ? <img src={singleBrand.labels.icon} alt="Logo"></img> : <p></p>}</td>
+                <td>{singleBrand.name}</td>
+                <td>{singleBrand.abv}</td>
+                <td>{singleBrand.ibu}</td>
+              </tr>
+      
+      
+      
+      
+      } modal>
         {close => (
       <div>
                 <div className="d-flex justify-content-between">
