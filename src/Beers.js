@@ -8,8 +8,8 @@ const Beers =({loading, daten}) => {
  }
  else{
     return (
-      <table className="table">
-        <thead>
+      <table className="table table-hover">
+        <thead className="thead">
           <tr>
             <th>Icon</th>
             <th>Name</th>

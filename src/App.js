@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import Beers from "./Beers";
-import Pagebutton from "./Pagebutton"
-
+import { StickyContainer, Sticky } from 'react-sticky';
+import Pagebuttonforward from "./Pagebuttonforward"
+import Pagebuttonbackward from "./Pagebuttonbackward"
 class App extends Component {
   state = {
     page: 1,
@@ -32,17 +33,38 @@ class App extends Component {
        
         console.log("Changed state brewData")
  }
+ 
 
   render() {
-
+const styleHead = {backgroundColor:'#BDBDBD', height:'6vw', minheight:'30px ', marginLeft:'3vw',marginRight:'3vw'}
+const styleTitle = {fontSize:'4vw'}
     return (
-      <div>
-        <h1>Brewmaster</h1>
-        <Pagebutton pageAtm={this.state.page} action={this.changePage} ></Pagebutton>
-        <div className="d-flex w-75 justify-content-center">
-          {this.state.brewData && <Beers loading={this.state.loading} daten={this.state.brewData}></Beers>}
+      <StickyContainer>
+      <Sticky>{({ style }) =>
+      <div className="" style={style}>
+        <div style={styleHead}>
+        <div className="row d-flex justify-content-center">
+        <div className="mr-auto"><Pagebuttonbackward page={this.state.page} action={this.changePage} ></Pagebuttonbackward></div>
+        <div style={styleTitle}>Brewmaster</div>
+        <img src=""></img>
+        <div className="ml-auto"><Pagebuttonforward page={this.state.page} action={this.changePage} ></Pagebuttonforward></div>
         </div>
-      </div>
+        
+    </div>
+        </div>
+         
+         }</Sticky>
+      
+        
+        <div className="d-flex flex-column" style={{marginTop:'2vw'}}>
+          <div className="d-flex justify-content-center "><p>Page {this.state.page}</p></div>
+          <div className="d-flex justify-content-center ">
+        <div className="d-flex w-75 table-responsive">
+          {this.state.brewData && <Beers loading={this.state.loading} daten={this.state.brewData}></Beers>}
+          
+        </div></div>
+        </div>
+      </StickyContainer>
     );
   }
 }
