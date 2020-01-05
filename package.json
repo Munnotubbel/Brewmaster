@@ -6,7 +6,7 @@
     "@material-ui/icons": "^4.5.1",
     "materialize-css": "^1.0.0",
     "react": "^16.4.1",
-    "react-dom": "^16.4.1",
+    "react-dom": "^16.4.2",
     "react-materialize": "^3.4.1",
     "react-scripts": "1.1.4",
     "react-sticky": "^6.0.3",
